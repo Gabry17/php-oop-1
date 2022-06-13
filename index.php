@@ -25,13 +25,25 @@ class Movie
         $this->votes[] = $_vote;
     }
 
+    //titolo
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    //year
+    public function getYear()
+    {
+        return $this->year;
+    }
+
     //media voti
     public function finalVote(){
         $sum = 0;
         foreach($this->votes as $vote){
             $sum += $vote;
         }
-        $final = $sum / count($votes);
+        $final = $sum / count($this->votes);
         return $final;
         
     }
@@ -45,7 +57,6 @@ $titanic->addVote(10);
 $titanic->addVote(7);
 $titanic->addVote(9);
 $titanic->addVote(8);
-var_dump($titanic);
 
 //Movie2
 $avatar = new Movie("Avatar", 2009);
@@ -55,7 +66,6 @@ $avatar->addGenre("Azione");
 $avatar->addVote(9);
 $avatar->addVote(7);
 $avatar->addVote(8);
-var_dump($avatar);
 
 //Movie3
 $focus = new Movie("Focus", 2015);
@@ -65,6 +75,27 @@ $focus->addGenre("Drammatico");
 $focus->addVote(6);
 $focus->addVote(9);
 $focus->addVote(7);
-var_dump($focus);
+
+
+//aggiungere oggetti in un array
+$allMovie = [];
+$allMovie [] = $titanic;
+$allMovie [] = $avatar;
+$allMovie [] = $focus;
 
 ?>
+
+<ul>
+    <?php foreach($allMovie as $item){ ?>
+        <li>
+            <h2><?php echo $item->getTitle(); ?></h2>
+            <p><?php echo $item->getYear(); ?></p>
+            <p>
+                <?php foreach($item->genres as $genre) {?>
+                    <?php echo $genre . " "; ?>
+                <?php } ?>
+            </p>
+            <p><?php echo $item->finalVote(); ?></p>
+        </li>
+    <?php } ?>
+</ul>
