@@ -1,0 +1,19 @@
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    padding: 1em;
+    background-color: #272744;
+    color: whitesmoke;
+    margin: 1em;
+}

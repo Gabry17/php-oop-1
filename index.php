@@ -85,17 +85,30 @@ $allMovie [] = $focus;
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>OOP</title>
+</head>
+<body>
 <ul>
     <?php foreach($allMovie as $item){ ?>
         <li>
-            <h2><?php echo $item->getTitle(); ?></h2>
-            <p><?php echo $item->getYear(); ?></p>
+            <p><?php echo "Titolo: " . $item->getTitle(); ?></p>
+            <p><?php echo "Anno: " . $item->getYear(); ?></p>
             <p>
+                Genere:
                 <?php foreach($item->genres as $genre) {?>
-                    <?php echo $genre . " "; ?>
+                    <?php echo $genre . "<br> "; ?>
                 <?php } ?>
             </p>
-            <p><?php echo $item->finalVote(); ?></p>
+            <p><?php echo "Voto:" . round($item->finalVote(), 1); ?></p>
         </li>
     <?php } ?>
 </ul>
+</body>
+</html>
