@@ -25,18 +25,6 @@ class Movie
         $this->votes[] = $_vote;
     }
 
-    //titolo
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    //year
-    public function getYear()
-    {
-        return $this->year;
-    }
-
     //media voti
     public function finalVote(){
         $sum = 0;
@@ -98,8 +86,8 @@ $allMovie [] = $focus;
 <ul>
     <?php foreach($allMovie as $item){ ?>
         <li>
-            <p><?php echo "Titolo: " . $item->getTitle(); ?></p>
-            <p><?php echo "Anno: " . $item->getYear(); ?></p>
+            <p><?php echo "Titolo: " . $item->title; ?></p>
+            <p><?php echo "Anno: " . $item->year; ?></p>
             <p>
                 Genere:
                 <?php foreach($item->genres as $genre) {?>
